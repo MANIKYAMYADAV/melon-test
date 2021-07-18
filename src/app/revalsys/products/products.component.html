@@ -1,0 +1,158 @@
+
+
+<app-header>
+
+</app-header>
+<app-sidebar>
+    
+</app-sidebar>
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <!-- <li class="breadcrumb-item"><a href="javascript: void(0);">UBold</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li> -->
+                                <li class="breadcrumb-item active">Product-List</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Product-List</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+
+            <!-- end row-->
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+
+                        <div class="card-body">
+
+                            <h4 class="header-title">Product-List</h4>
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label for="fullname">Search</label>&nbsp;
+                                    <input class="form-control" type="search" placeholder="Search.." [(ngModel)]="searchTerm" >
+                                    <!-- <span><i class="fa fa-search"></i></span> -->
+
+                                </div>
+                                <div class="form-group d-block ml-auto">
+                                    <button (click)="ExportTOExcel()" class="btn btn-success">ExportTOExcel</button>
+
+                                </div>
+                                <!-- <div class="form-group d-block ml-auto">
+                                    <button type="button" class="btn btn-success waves-effect waves-light "
+                                        data-toggle="modal" data-target="#con-close-modal">+Add Product</button>
+                                </div> -->
+                            </div>
+
+
+                            <br>
+                            <table id="datatable-buttons" #TABLE #table
+                                class="table table-striped dt-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th>Images</th>
+                                        <th>Collection</th>
+                                        <th>Price</th>
+                                        <th>ProductTitle</th>
+                                        <th>StyleName</th>
+                                        <th>StyleNumber</th>
+                                        <th>NetQuantity</th>
+                                        <th>ProductCode</th>
+                                        <th>AvailableSizes</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <!--  " -->
+
+                                <tbody>
+                                    <tr *ngFor="let product of products | paginate: config | filter:searchTerm; let i=index">
+
+                                         <!-- <td><img  src= ${product.Images} style height="30" width="30" onerror="this.onerror=null;this.src='${product.Images}'"> ` : ''</td> -->
+                                        <td><img src="{{product.Images}}" style="height: 30; width: 30;" alt="" srcset=""></td>
+                                        <td>{{product.Collection}}</td>
+                                        <td>{{product.Price}}</td>
+                                        <td>{{product.ProductTitle}}</td>
+                                        <td>{{product.StyleName}}</td>
+                                        <td>{{product.StyleNumber}}</td>
+                                        <td>{{product.NetQuantity}}</td>
+                                        <td>{{product.ProductCode}}</td>
+                                        <td>{{product.AvailableSizes}}</td>
+                                       
+                                        
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <th>Images</th>
+                                    <th>Collection</th>
+                                    <th>Price</th>
+                                    <th>ProductTitle</th>
+                                    <th>StyleName</th>
+                                    <th>StyleNumber</th>
+                                    <th>NetQuantity</th>
+                                    <th>ProductCode</th>
+                                    <th>AvailableSizes</th>
+                                   
+                                </tfoot>
+                            </table>
+                            <div class="d-flex ml-auto">
+                            <pagination-controls  (pageChange)="pageChanged($event)"></pagination-controls>
+                           </div>
+
+
+                        </div> <!-- end card body-->
+                    </div> <!-- end card -->
+                </div><!-- end col-->
+            </div>
+            <!-- end row-->
+
+
+
+
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    2021 &copy; theme by <a href="">Revalsys</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-md-right footer-links d-none d-sm-block">
+                        <a href="javascript:void(0);">About Us</a>
+                        <a href="javascript:void(0);">Help</a>
+                        <a href="javascript:void(0);">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end Footer -->
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
